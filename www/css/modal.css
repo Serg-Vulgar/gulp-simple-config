@@ -1,0 +1,30 @@
+#modal {
+    display: none;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(146, 146, 146, 0.65);
+}
+
+#modal h1 {
+    width: 200px;
+    background-color: #fff;
+    margin-left: -100px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    vertical-align: middle;
+    border-radius: 10px;
+}
+
+#close {
+    font-size: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    color: #ff3242;
+}
