@@ -12,21 +12,20 @@ gulp.task('clean', function () {
     del('dist');
 });
 
+gulp.task('css', function () {
+    return gulp.src('www/scss/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer())
+        .pipe(minifyCss())
+        .pipe(concat('styles.min.css'))
+        .pipe(gulp.dest('dist/css'));
+});
 
 gulp.task('bundle', function () {
     return gulp.src('www/*.html')
         .pipe(useref())
         .pipe(gulpif('*.js', uglify()))
         .pipe(gulp.dest('dist'));
-});
-
-gulp.task('css', function () {
-    return gulp.src('www/scss/**/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer())
-        .pipe(concat('styles.min.css'))
-        // .pipe(minifyCss())
-        .pipe(gulp.dest('dist/css'));
 });
 
 gulp.task('build', ['clean', 'css', 'bundle'], function () {
